@@ -22,7 +22,7 @@ Aplicação desenvolvida com foco em boas práticas, arquitetura modularizada, t
 ### 1. Clonar o repositório
 
 ```bash
-git clone https://github.com/micheldeziderio/Project-Angular.git
+git clone https://github.com/micheldeziderio/projeto-angular.git
 cd projeto-angular
 ```
 
