@@ -1,0 +1,10 @@
+<div class="alert-container">
+  <div *ngFor="let alert of alerts" class="alert" [ngClass]="alert.type">
+    <i [class]="getIcon(alert.type)" class="icon"></i>
+    <div class="body-content">
+      <span class="title"><strong>{{ alert.type | titlecase }}:</strong></span>
+      <span class="message">{{ alert.message }}</span>
+    </div>
+    <button class="close-btn" (click)="close(alert)">×</button>
+  </div>
+</div>

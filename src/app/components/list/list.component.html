@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="filter-bar">
+    <input type="text" [(ngModel)]="searchTerm" placeholder="Buscar por nome ou email" class="filter-input" />
+  </div>
+
+  <div class="mode-view">
+
+    <button class="view" title="Lista" [ngClass]="{'active': modeView === 'list'}" (click)="modeView = 'list'">
+      <i class="fa-solid fa-table-list"></i>
+    </button>
+
+    <button class="view" title="Grid" [ngClass]="{'active': modeView === 'grid'}" (click)="modeView = 'grid'">
+      <i class="fa-solid fa-table"></i>
+    </button>
+
+  </div>
+
+  <ng-container *ngIf="modeView === 'grid'">
+    <div class="card-wrapper">
+      <div class="card-grid">
+        <div class="user-card" *ngFor="let user of filteredUsers()">
+          <div class="card-header">
+            <h3>{{ user.name }}</h3>
+          </div>
+          <div class="card-body">
+            <p><strong>CPF:</strong> {{ user.cpf | cpfFormat }}</p>
+            <p><strong>Telefone:</strong> {{ user.phone | phoneFormat}}</p>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+          </div>
+          <div class="card-actions">
+            <button (click)="onRemove(user.cpf)"><i class="fas fa-trash-alt"></i> Remover</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="modeView === 'list'">
+    <div class="table-wrapper">
+      <table class="user-table" *ngIf="users?.length">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Telefone</th>
+            <th>Email</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of filteredUsers()">
+            <td>{{ user.name }}</td>
+            <td>{{ user.cpf | cpfFormat }}</td>
+            <td>{{ user.phone | phoneFormat }}</td>
+            <td>{{ user.email }}</td>
+            <td>
+              <button class="delete-btn" (click)="onRemove(user.cpf)">
+                <i class="fas fa-trash"></i> Remover
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </ng-container>
+
+</div>

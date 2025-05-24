@@ -1,0 +1,3 @@
+<ng-container *ngIf="users$ | async as users">
+  <app-list [users]="users" (removeUser)="remove($event)" />
+</ng-container>
