@@ -30,6 +30,10 @@ form {
   @media (max-width: 600px) {
     padding: 1rem;
   }
+
+  h3 {
+    color: $color-text-focus;
+  }
 }
 
 @keyframes fadeInUp {
