@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserListComponent } from './user-list.component';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('UserListComponent', () => {
   let component: UserListComponent;
@@ -8,7 +9,7 @@ describe('UserListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UserListComponent]
+      imports: [UserListComponent, HttpClientModule]
     })
     .compileComponents();
     
@@ -19,5 +20,12 @@ describe('UserListComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should call userService.removeUser with the correct cpf when remove is called', () => {
+    const userServiceSpy = spyOn((component as any).userService, 'removeUser');
+    const testCpf = '12345678900';
+    component.remove(testCpf);
+    expect(userServiceSpy).toHaveBeenCalledWith(testCpf);
   });
 });
