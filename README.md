@@ -23,7 +23,7 @@ Aplicação desenvolvida com foco em boas práticas, arquitetura modularizada, t
 
 ```bash
 git clone https://github.com/micheldeziderio/Project-Angular.git
-cd Project-Angular
+cd projeto-angular
 ```
 
 ### 2. Instalar as dependências
