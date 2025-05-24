@@ -1,27 +1,101 @@
-# AngularProject
+# Front-End Challenge Angular 17.3.2 🚀
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.2.
+Aplicação desenvolvida com foco em boas práticas, arquitetura modularizada, testes unitários e estilização moderna usando SCSS e componentes standalone.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## ✅ Tecnologias Utilizadas
 
-## Code scaffolding
+- Angular 17.3.2 (com Standalone Components)
+- TypeScript (ECMAScript 6+)
+- SCSS com variáveis globais
+- Font Awesome para ícones
+- Reactive Forms
+- LocalStorage como camada de persistência
+- Testes unitários com Jest
+- Design Responsivo com Grid
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## 📦 Como rodar a aplicação localmente
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 1. Clonar o repositório
 
-## Running unit tests
+```bash
+git clone https://github.com/micheldeziderio/Project-Angular.git
+cd Project-Angular
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### 2. Instalar as dependências
+```bash
+npm install
+```
 
-## Running end-to-end tests
+### 3. Rodar o projeto
+```bash
+ng serve || npm run start
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Acesse em: http://localhost:4200
 
-## Further help
+---
+### 🧪 Testes Unitários
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Este projeto inclui testes unitários com Jasmine e Karma.
+```bash
+npm run test
+```
+
+### 🧩 Estrutura da aplicação
+```bash
+app/
+├── components/            # Componentes reaproveitáveis e encapsulados
+│   ├── alerts/            # Componentes visuais para mensagens e feedbacks (ex: toast, alertas)
+│   ├── form/              # Componente de formulário reativo reutilizável (criação e caso precise de umaedição)
+│   ├── header/            # Cabeçalho fixo da aplicação com ícones de navegação
+│   └── list/              # Componente visual de listagem (tabela e grid)
+│
+├── core/                  # Camada central com regras de negócio
+│   ├── models/            # Interfaces e tipos (ex: User)
+│   ├── services/          # Serviços de persistência, como manipulação de localStorage
+│   └── utils/             # Pipes, diretivas e helpers (ex: máscaras, validação simples, formatação)
+│
+├── pages/                 # Páginas principais do app
+│   ├── home/              # Página de cadastro de usuários
+│   └── user-list/         # Página de listagem e exclusão de usuários
+│
+├── app.component.ts       # Componente raiz da aplicação
+├── app.component.html     # HTML base da aplicação
+├── app.component.scss     # Estilo global e layout principal
+├── app.config.server.ts   # Configurações para SSR (Server Side Rendering) se necessário
+├── app.routes.ts          # Arquivo de rotas com lazy loading e rotas standalone
+```
+---
+
+### ✅ Benefícios dessa organização
+- **Modularidade:** fácil manutenção e adição de novas funcionalidades
+- **Reutilização:** componentes como form e list usados por várias páginas
+- **Escalabilidade:** fácil evoluir para rotas autenticadas, interceptadores, guards, etc.
+- **Isolamento** de responsabilidades: cada pasta com um propósito claro
+
+---
+### 🔧 Funcionalidades Implementadas
+
+- Cadastro de usuário
+- Remoção de usuário
+- Visualização dos dados em tabela ou grid
+- Máscaras para CPF e telefone
+- Scrollbar customizada e responsiva
+- Estilo minimalista com animações e transições simples
+- Testes unitários configurados
+
+📌 Os dados são armazenados temporariamente no `localStorage`.
+
+---
+### 📝 Observações
+
+- A aplicação não utiliza backend; todos os dados são temporários.
+- A estrutura segue modularizada em components, core, pages.
+
+### 👨‍💻 Desenvolvido por:
+[Michel Deziderio](https://github.com/MichelDeziderio)
