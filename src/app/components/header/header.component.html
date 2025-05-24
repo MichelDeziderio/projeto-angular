@@ -1,0 +1,13 @@
+<header class="header">
+  <div class="logo">
+    <img src="favicon.ico" alt="Angular" width="28" height="28" />
+  </div>
+  <nav class="nav-icons">
+    <a routerLink="/" title="Cadastrar novo usuário" [class.active]="isActive('/')">
+      <i class="fas fa-user-plus"></i>
+    </a>
+    <a routerLink="/users" title="Listagem de usuários" [class.active]="isActive('/users')">
+      <i class="fas fa-list"></i>
+    </a>
+  </nav>
+</header>

@@ -1,0 +1,151 @@
+@use 'variables' as *;
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 93vh;
+  padding: 1rem;
+
+  @media(max-width: 574px) {
+    align-items: flex-start;
+    margin-top: 30px;
+  }
+}
+
+form {
+  max-width: 500px;
+  width: 100%;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-sizing: border-box;
+  animation: fadeInUp 0.5s ease forwards;
+  transform: translateY(40px);
+
+  @media (max-width: 600px) {
+    padding: 1rem;
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.input-group {
+  position: relative;
+  width: 100%;
+
+  input {
+    width: 100%;
+    padding: 1rem 0.5rem 0.5rem;
+    font-size: 1rem;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid $color-border-default;
+    color: $color-text-default;
+    outline: none;
+    transition: border-color 0.3s;
+
+    &:focus {
+      border-bottom-color: $color-text-focus;
+    }
+
+    &.ng-invalid.ng-touched {
+      border-bottom-color: $color-error;
+      color: $color-error;
+    }
+  }
+
+  label {
+    position: absolute;
+    left: 0.5rem;
+    top: 1rem;
+    color: $color-text-default;
+    font-size: 1rem;
+    pointer-events: none;
+    transition: all 0.2s ease-out;
+  }
+
+  &.focused label,
+  &.filled label {
+    top: -0.5rem;
+    font-size: 0.75rem;
+    color: $color-text-focus;
+  }
+
+  &.focused input,
+  &.filled input {
+    color: $color-text-focus;
+  }
+
+  &.ng-invalid.ng-touched label {
+    color: $color-error;
+  }
+}
+
+.error-message {
+  color: $color-error;
+  font-size: 0.675rem;
+  margin-top: -1rem;
+}
+
+button {
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: $color-button-bg;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  width: 100%;
+  height: 3.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    opacity: $color-button-hover-opacity;
+  }
+
+  &:disabled {
+    color: $color-button-disabled-text;
+    background-color: $color-button-disabled-bg;
+    cursor: not-allowed;
+  }
+
+  &.loading {
+    cursor: not-allowed;
+  }
+
+  &.loading::after {
+    content: "";
+    width: 24px;
+    height: 24px;
+    border: 3px solid $color-text-default;
+    border-top: 3px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
