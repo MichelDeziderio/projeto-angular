@@ -12,7 +12,7 @@ Aplicação desenvolvida com foco em boas práticas, arquitetura modularizada, t
 - Font Awesome para ícones
 - Reactive Forms
 - LocalStorage como camada de persistência
-- Testes unitários com Jest
+- Testes unitários com Jasmine
 - Design Responsivo com Grid
 
 ---
